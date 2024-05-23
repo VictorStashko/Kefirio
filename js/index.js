@@ -82,8 +82,11 @@ function postInfo(info){
       url: info.url
   })
       .then(function (response) {
-        swal("Успіх",response.data , "success");
+        // swal("Успіх",response.data , "success");
+        // console.log(response);
+        output.append(JSON.stringify(response.data,null,'\t'));
         console.log(response);
+        reqStatus.append('status: '+response.status +'\n' + 'statusText: '+ response.statusText);
       })
       .catch(function (error) {
         console.log(error);
@@ -102,8 +105,9 @@ function patchInfo(info) {
       url: info.url
   })
       .then(function (response) {
-        swal("Успіх",response.data , "success");
+        output.append(JSON.stringify(response.data,null,'\t'));
         console.log(response);
+        reqStatus.append('status: '+response.status +'\n' + 'statusText: '+ response.statusText);
       })
       .catch(function (error) {
         console.log(error);
@@ -122,7 +126,7 @@ function deleteUser(info) {
       url: info.url
   })
       .then(function (response) {
-        swal("Успіх",response.data , "success");
+        alert("Успіх",response.data , "success");
         console.log(response);
       })
       .catch(function (error) {
